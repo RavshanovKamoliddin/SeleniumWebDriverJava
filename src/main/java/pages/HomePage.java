@@ -6,14 +6,23 @@ import org.openqa.selenium.WebDriver;
 public class HomePage {
 
     public WebDriver driver;
-    private final By fromAuthenticationLink = By.cssSelector("a[href='/login']");
+   // private final By fromAuthenticationLink = By.cssSelector("a[href='/login']");
 
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
     public LoginPage clickFormAuthentication() {
-        driver.findElement(fromAuthenticationLink).click();
+        clickLink("a[href='/login']");
         return new LoginPage(driver);
+    }
+
+    public DropdownPage clickDropDown(){
+        clickLink("a[href='/dropdown']");
+        return new DropdownPage(driver);
+    }
+
+    private void clickLink(String cssSelector){
+        driver.findElement(By.cssSelector(cssSelector)).click();
     }
 }
 
