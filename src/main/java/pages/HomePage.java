@@ -21,6 +21,16 @@ public class HomePage {
         return new DropdownPage(driver);
     }
 
+    public HoversPage clickHovers() {
+        clickLink("a[href='/hovers']");
+        return new HoversPage(driver);
+    }
+
+    public KeyPressesPage clickKeyPresses(){
+        clickLink("Key Presses");
+        return new KeyPressesPage(driver);
+    }
+
     private void clickLink(String cssSelector){
         driver.findElement(By.cssSelector(cssSelector)).click();
     }

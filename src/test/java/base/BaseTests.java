@@ -21,7 +21,7 @@ public class BaseTests {
 
         driver.get("https://the-internet.herokuapp.com/");
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 
 
         homePage = new HomePage(driver);

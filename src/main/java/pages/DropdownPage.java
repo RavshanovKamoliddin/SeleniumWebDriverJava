@@ -18,7 +18,7 @@ public class DropdownPage {
     public DropdownPage(WebDriver driver){
         this.driver = driver;
     }
-    public void selectFromDropDown(String option){
+    public void selectFromDropDown(String option) {
         Select dropdownElement = new Select(driver.findElement(dropdown));
         dropdownElement.selectByVisibleText(option);
 
