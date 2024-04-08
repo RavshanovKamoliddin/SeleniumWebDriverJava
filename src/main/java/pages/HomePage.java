@@ -33,12 +33,27 @@ public class HomePage {
     }
 
     public AlertsPage clickJavaScriptAlerts(){
-        clickLink("#content > ul > li:nth-child(29) > a");
+        clickLink("a[href='/javascript_alerts']");
         return new AlertsPage(driver);
+    }
+
+    public FileUploadPage clickFileUpload(){
+        clickLink("a[href='/upload']");
+        return new FileUploadPage(driver);
     }
 
     private void clickLink(String cssSelector){
         driver.findElement(By.cssSelector(cssSelector)).click();
     }
+
+     /*=====================================
+       METHODS FOR INDIVIDUAL EXERCISES
+     ======================================*/
+
+    public ContextMenuPage clickContextMenu(){
+        clickLink("a[href='/context_menu']");
+        return new ContextMenuPage(driver);
+    }
+
 }
 
