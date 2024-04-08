@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage {
@@ -27,8 +28,13 @@ public class HomePage {
     }
 
     public KeyPressesPage clickKeyPresses(){
-        clickLink("Key Presses");
+        clickLink("a[href='/key_presses']");
         return new KeyPressesPage(driver);
+    }
+
+    public AlertsPage clickJavaScriptAlerts(){
+        clickLink("#content > ul > li:nth-child(29) > a");
+        return new AlertsPage(driver);
     }
 
     private void clickLink(String cssSelector){

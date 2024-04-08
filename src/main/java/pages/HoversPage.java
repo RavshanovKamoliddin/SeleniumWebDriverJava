@@ -31,7 +31,6 @@ public class HoversPage {
         private final WebElement caption;
         private final By header = By.tagName("h5");
         private final By link = By.tagName("a");
-        private boolean isCaptionDisplayed;
 
         public FigureCaption(WebElement caption) {
             this.caption = caption;
@@ -54,7 +53,6 @@ public class HoversPage {
         }
 
         public void setCaptionDisplayed(boolean captionDisplayed) {
-            isCaptionDisplayed = captionDisplayed;
         }
     }
 }

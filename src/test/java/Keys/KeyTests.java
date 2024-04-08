@@ -1,4 +1,4 @@
-package KeysTests;
+package Keys;
 
 import base.BaseTests;
 import org.openqa.selenium.Keys;
@@ -13,5 +13,11 @@ public class KeyTests extends BaseTests {
         var keyPage = homePage.clickKeyPresses();
         keyPage.enterText("A" + Keys.BACK_SPACE);
         assertEquals(keyPage.getResult(), "You entered: BACK_SPACE");
+    }
+
+    @Test
+    public void testPi(){
+        var keyPage = homePage.clickKeyPresses();
+        keyPage.enterPi();
     }
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
 
 import java.time.Duration;
@@ -16,11 +17,7 @@ public class BaseTests {
     @BeforeClass
     public void setUP(){
         System.setProperty("web-driver.chrome.driver", "resources/chromedriver.exe");
-
         driver = new ChromeDriver();
-
-        driver.get("https://the-internet.herokuapp.com/");
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 
 
@@ -37,6 +34,11 @@ public class BaseTests {
 //        driver.manage().window().setSize(size);
         //       System.out.println(driver.getTitle());
 
+    }
+
+    @BeforeMethod
+    public void goHome(){
+        driver.get("https://the-internet.herokuapp.com/");
     }
 
     @AfterTest
