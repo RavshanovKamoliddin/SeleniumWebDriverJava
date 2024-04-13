@@ -42,6 +42,11 @@ public class HomePage {
         return new FileUploadPage(driver);
     }
 
+    public WysiwygEditorPage clickWysiwygEditor(){
+        clickLink("a[href='/tinymce']");
+        return new WysiwygEditorPage(driver);
+    }
+
     private void clickLink(String cssSelector){
         driver.findElement(By.cssSelector(cssSelector)).click();
     }
