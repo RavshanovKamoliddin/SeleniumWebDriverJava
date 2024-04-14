@@ -51,6 +51,11 @@ public class HomePage {
         driver.findElement(By.cssSelector(cssSelector)).click();
     }
 
+    public DynamicLoadingPage clickDynamicLoading(){
+        clickLink("a[href='/dynamic_loading']");
+        return new DynamicLoadingPage(driver);
+    }
+
      /*=====================================
        METHODS FOR INDIVIDUAL EXERCISES
      ======================================*/
