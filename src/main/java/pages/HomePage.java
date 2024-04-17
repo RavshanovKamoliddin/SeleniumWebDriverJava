@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage {
@@ -54,6 +53,22 @@ public class HomePage {
     public DynamicLoadingPage clickDynamicLoading(){
         clickLink("a[href='/dynamic_loading']");
         return new DynamicLoadingPage(driver);
+    }
+
+    public MultipleWindowPage clickMultipleWindows(){
+        clickLink("a[href='/windows']");
+        return new MultipleWindowPage(driver);
+    }
+
+
+    public LargeAndDeepDomPage clickLargeAndDEppDom(){
+        clickLink("a[href='/large']");
+        return new LargeAndDeepDomPage(driver);
+    }
+
+    public InfiniteScrollPage clickInfiniteScroll(){
+        clickLink("a[href='/infinite_scroll']");
+        return new InfiniteScrollPage(driver);
     }
 
      /*=====================================
