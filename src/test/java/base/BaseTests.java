@@ -1,12 +1,10 @@
 package base;
 
 import com.google.common.io.Files;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v123.network.Network;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -17,8 +15,6 @@ import utils.WindowManager;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class BaseTests {
     //private WebDriver driver;
@@ -31,8 +27,9 @@ public class BaseTests {
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6)); //Duration
-
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6)); //Duration
+        goHome();
+        setCookie();
 
        /* WebDriver example code
        driver = new ChromeDriver();
@@ -53,6 +50,8 @@ public class BaseTests {
           */
 
     }
+
+
 
     @BeforeMethod
     public void goHome(){
@@ -90,5 +89,12 @@ public class BaseTests {
 
     public CookieManager getCookieManager(){
         return new CookieManager(driver);
+    }
+
+    private void setCookie(){
+        Cookie cookie = new Cookie.Builder("QA.uz", "123")
+                .domain("the-internet.herokuapp.com")
+                .build();
+        driver.manage().addCookie(cookie);
     }
 }
